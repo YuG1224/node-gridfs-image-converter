@@ -1,0 +1,20 @@
+{
+  "name": "node-gridfs-image-converter",
+  "version": "0.0.0",
+  "description": "save images and convert image dynamically.",
+  "authors": [
+    "Yuji Yamaguchi <yug.1224@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.3"
+  }
+}

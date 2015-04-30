@@ -1,0 +1,44 @@
+extends layout
+
+block style
+  link(rel="stylesheet", href="./css/index.css")
+
+block content
+  include header
+  
+  .container
+    article.main.row
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="Image"
+        .image
+          img.img-thumbnail(v-attr="src: image")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="File input"
+        input(type="file", name="file", v-on="change: create")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="width"
+        input(type="range", min="0", max="{{maxWidth}}", v-model="params.width", v-on="change: update")
+        input(type="text", v-model="params.width", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="height"
+        input(type="range", min="0", max="{{maxHeight}}", v-model="params.height", v-on="change: update")
+        input(type="text", v-model="params.height", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="quality"
+        input(type="range", min="1", max="100", v-model="params.quality", v-on="change: update")
+        input(type="text", v-model="params.quality", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="rotate"
+        input(type="range", min="0", max="360", v-model="params.rotate", v-on="change: update")
+        input(type="text", v-model="params.rotate", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="blur"
+        input(type="text", v-model="params.blur", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        label="format"
+        input(type="text", v-model="params.format", v-on="change: update")
+      .form-group.col-xs-12.col-sm-offset-3.col-sm-6
+        button.btn.btn-success(type="button", v-on="click: open")="Open Link IN New Tab"
+
+block script
+  script(src="./js/index.js")
