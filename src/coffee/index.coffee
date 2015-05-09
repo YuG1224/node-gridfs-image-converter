@@ -33,8 +33,7 @@ vm = new Vue
         @id = data.id
         @maxWidth = data.identify.width ? 1000
         @maxHeight = data.identify.height ? 1000
-        query = qs.stringify @params
-        @image = "#{@url}/#{@id}?#{query}"
+        @image = "#{@url}/#{@id}?#{qs.stringify @params}"
         return
       .fail (jqXHR, textStatus, errorThrown) ->
         console.log jqXHR, textStatus, errorThrown
@@ -42,9 +41,8 @@ vm = new Vue
       return
 
     update: () ->
-      if @file
-        query = qs.stringify @params
-        @image = "#{@url}/#{@id}?#{query}"
+      if @file or @image isnt "/images/noimage.png"
+        @image = "#{@url}/#{@id}?#{qs.stringify @params}"
       return
 
     open: () ->
